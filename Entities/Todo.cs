@@ -15,6 +15,20 @@ namespace TodoListBackend.Entities
             IsDeleted = new(false);
         }
 
+        public Todo(
+            string name,
+            IdentityUser user,
+            Bool? isComplete = null,
+            Bool? isDeleted = null,
+            DateTime? creationDate = null)
+        {
+            Name = name;
+            IsComplete = isComplete ?? new(false);
+            IsDeleted = isDeleted ?? new(false);
+            CreationDate = creationDate ?? DateTime.UtcNow;
+            User = user;
+        }
+
         public int Id { get; set; }
 
         [MinLength(5), MaxLength(100)]

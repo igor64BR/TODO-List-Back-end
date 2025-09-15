@@ -8,6 +8,7 @@ namespace TodoListBackend.Services
             this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IJwtService, JwtService>();
 
             return services;
         }

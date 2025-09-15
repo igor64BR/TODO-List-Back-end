@@ -1,4 +1,5 @@
 using TodoListBackend;
+using TodoListBackend.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +16,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
+app.UseAuthorization();
 
-app.MapGet("/", (AppDbContext db) => "Hello World");
+app.MapEndpoints();
 
 app.Run();

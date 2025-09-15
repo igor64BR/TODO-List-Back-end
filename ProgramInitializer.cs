@@ -1,4 +1,5 @@
 ﻿
+using TodoListBackend.Repositories;
 using TodoListBackend.Services;
 
 namespace TodoListBackend
@@ -9,12 +10,15 @@ namespace TodoListBackend
         {
             ConfigurationFiles.Configure(builder);
             DotNetServices.Configure(builder);
+            JwtConfiguration.Configure(builder);
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddControllers();
 
+            // Custom DI extensions
             builder.Services.AddServices();
+            builder.Services.AddRepositories();
         }
     }
 }
